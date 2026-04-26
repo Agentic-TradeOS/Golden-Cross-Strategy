@@ -12,17 +12,21 @@ Implementation
 🐍 Python (Pandas)
 Perfect for algorithmic backtesting.
 
-# Assuming 'df' is a DataFrame with 'sma50' and 'sma200'
+## Assuming 'df' is a DataFrame with 'sma50' and 'sma200'
+```python
 df['signal'] = (df['sma50'] > df['sma200']) & (df['sma50'].shift(1) <= df['sma200'].shift(1))
 golden_crosses = df[df['signal'] == True]
+```
 
 🟦 TypeScript
 Useful for real-time alerts or frontend charting.
 
+```typescript
 const isGoldenCross = (fast: number[], slow: number[]): boolean => {
   const len = fast.length;
   return fast[len - 1] > slow[len - 1] && fast[len - 2] <= slow[len - 2];
 };
+```
 
 Key Technical Specs
 • Short-term MA: 50 periods
